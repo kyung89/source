@@ -3,8 +3,6 @@
 import numpy as np
 import cv2
 
-
-
 def onChange(value):
     global image, title
 

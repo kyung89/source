@@ -5,12 +5,6 @@
 import numpy as np
 import cv2
 
-print()
-print("10. 다음의 마우스 이벤트 제어 프로그램을 작성하시오.")
-print("    1) 마우스 오른쪽 버튼 클릭 시 원(클릭 좌표에서 반지름 20화소)을 그린다.")
-print("    2) 마우스 왼족 버튼 클릭 시 사각형(크기 30x30)을 그린다.")
-print()
-
 def onMouse(event, x, y, flags, param):
     if event == cv2.EVENT_RBUTTONDOWN:
         print("1) 마우스 오른쪽 버튼 클릭 시 원(클릭 좌표에서 반지름 20화소)을 그린다.")

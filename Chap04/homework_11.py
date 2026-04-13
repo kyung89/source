@@ -5,12 +5,6 @@
 import numpy as np
 import cv2
 
-print()
-print("11. 10번 연습문제에서 다음을 추가하여 프로그램을 작성하시오.")
-print("    1) 트랙바를 추가해서 선의 굵기를 1~10픽셀로 조절한다.")
-print("    2) 트랙바를 추가해서 원의 반지름을 1~50픽셀로 조절한다.")
-print()
-
 radius = 20
 thickness = 1
 
