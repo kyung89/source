@@ -6,7 +6,10 @@ def onChange(value):
 
     add_value = value - int(image[0][0])
     print("추가 화소값:", add_value)
-    image[:] = image + add_value
+    if add_value > 0:
+        image = image + add_value  # 행렬과 스칼라 덧셈 수행
+    else:
+        image = image - abs(add_value)  # 행렬과 스칼라 덧셈 수행
     cv2.imshow(title, image)
 
 def onMouse(event, x, y, flags, param):
