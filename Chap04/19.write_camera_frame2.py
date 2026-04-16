@@ -5,18 +5,8 @@ if not capture.isOpened(): raise Exception("Could not open camera")
 
 fps = 29.97
 delay = round(1000/fps)
-
-capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 360)
-
-ret, frame = capture.read()
-if not ret:
-    raise Exception("첫 프레임 읽기 실패")
-
-h, w = frame.shape[:2]
-size = (w, h)
-
-fourcc = cv2.VideoWriter_fourcc(*'XVID')
+size = (640, 360)
+fourcc = cv2.VideoWriter_fourcc(*"DX50")
 
 print("width x height: ", size)
 print("VideoWriterfourcc: %s" % fourcc)
@@ -36,11 +26,8 @@ while True:
     if not ret: break
     if cv2.waitKey(delay) >= 0: break
 
-    cv2.imshow('View Frame from Camera', frame)
     writer.write(frame)
-
-    if cv2.waitKey(delay) >= 0:
-        break
+    cv2.imshow('View Frame from Camera', frame)
 
 writer.release()
 capture.release()

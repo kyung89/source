@@ -11,8 +11,6 @@ capture = cv2.VideoCapture(0)
 if not capture.isOpened():
     raise Exception("Error opening video stream or file")
 
-title = "View Frame from Camera"
-
 print("너비 %d" % capture.get(cv2.CAP_PROP_FRAME_WIDTH))
 print("높이 %d" % capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
 print("노출 %d" % capture.get(cv2.CAP_PROP_EXPOSURE))
@@ -22,17 +20,11 @@ while True:
 
     ret, frame = capture.read()
     if not ret: break
+    if cv2.waitKey(30) >= 0: break
 
     exposure = capture.get(cv2.CAP_PROP_EXPOSURE)
     put_string(frame, "EXPOS: ", (10, 40), exposure)
-
+    title = "View Frame from Camera"
     cv2.imshow(title, frame)
 
-    if cv2.waitKey(30) >= 0: break
-
-    if cv2.getWindowProperty(title, cv2.WND_PROP_VISIBLE) < 1:
-        break
-
-
 capture.release()
-cv2.destroyAllWindows()
