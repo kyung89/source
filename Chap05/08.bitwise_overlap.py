@@ -23,5 +23,6 @@ image[y:y+h,x:x+w] = dst
 
 cv2.imshow("background", background); cv2.imshow("foreground", foreground)
 cv2.imshow('dst', dst); cv2.imshow('image', image)
+cv2.imshow('logo', logo)
 
 cv2.waitKey(0)
