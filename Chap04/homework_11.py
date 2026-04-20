@@ -11,22 +11,20 @@ thickness = 1
 def onMouse(event, x, y, flags, param):
     if event == cv2.EVENT_RBUTTONDOWN:
         print("1) 마우스 오른쪽 버튼 클릭 시 원(클릭 좌표에서 반지름 20화소)을 그린다.")
-        cv2.circle(image, (x, y), radius, (0, 0, 0))
+        cv2.circle(image, (x, y), radius, (0, 0, 0), thickness)
         cv2.imshow(title, image)
     elif event == cv2.EVENT_LBUTTONDOWN:
         print("2) 마우스 왼쪽 버튼 클릭 시 사각형(크기 30x30)을 그린다.")
-        cv2.rectangle(image, (x, y, 30, 30), (0, 0, 0), thickness)
+        cv2.rectangle(image, (x, y), (x + 30, y + 30), (0, 0, 0), thickness)
         cv2.imshow(title, image)
 
 def onChangeThickness(value):
     global thickness
-
     thickness = value
     print("Thickness:", thickness)
 
 def onChangeRadius(value):
     global radius
-
     radius = value
     print("Radius:", radius)
 

@@ -25,8 +25,11 @@ def onMouse(event, x, y, flags, param):
     elif event == cv2.EVENT_MBUTTONDOWN:
         if pt[0] < 0: pt = (x, y)
         else:
-            dx, dy = abs(pt[0] - x), abs(pt[1] - y)
-            cv2.ellipse(image, pt, (dx, dy), 0, 0, 360, (0, 0, 0), 1)
+            # dx, dy = abs(pt[0] - x), abs(pt[1] - y)
+            # cv2.ellipse(image, pt, (dx, dy), 0, 0, 360, (0, 0, 0), 1)
+            center = ((pt[0] + x) // 2, (pt[1] + y) // 2)
+            axes = (abs(pt[0] - x) // 2, abs(pt[1] - y) // 2)
+            cv2.ellipse(image, center, axes, 0, 0, 360, (0, 0, 0), 1)
             cv2.imshow(title, image)
             pt = (-1, -1)
 

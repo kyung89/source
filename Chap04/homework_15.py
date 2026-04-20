@@ -43,8 +43,8 @@ cv2.namedWindow(title)
 cv2.createTrackbar("zoom", title, 0, 10, zoom_bar)
 cv2.createTrackbar("focus", title, 0, 40, focus_bar)
 
-cv2.createTrackbar("Brightness", title, 0, 10, brightness_bar)
-cv2.createTrackbar("Contrast", title, 0, 40, contrast_bar)
+cv2.createTrackbar("Brightness", title, 0, 100, brightness_bar)
+cv2.createTrackbar("Contrast", title, 0, 100, contrast_bar)
 
 while True:
     ret, frame = capture.read()

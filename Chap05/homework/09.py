@@ -7,9 +7,11 @@ print(arr)
 print()
 
 avg1 = cv2.reduce(arr, 0, cv2.REDUCE_AVG) # 열 방향 연산, 1행으로 축소
+print("열 방향 연산, 1행으로 축소")
 print(avg1)
 print()
 
 avg2 = cv2.reduce(arr, 1, cv2.REDUCE_AVG) # 행 방향 연산, 1열으로 축소
+print("행 방향 연산, 1열으로 축소")
 print(avg2)
 print()

@@ -8,7 +8,7 @@ image[:] = 255
 title = "09 practice"
 
 cv2.namedWindow(title, cv2.WINDOW_AUTOSIZE)
-cv2.rectangle(image, (100, 100, 300, 200), red, cv2.FILLED)
+cv2.rectangle(image, (100, 100), (300, 400), red, cv2.FILLED)
 
 cv2.imshow(title, image)
 cv2.waitKey(0)

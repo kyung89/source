@@ -12,7 +12,7 @@ def onMouse(event, x, y, flags, param):
         cv2.imshow(title, image)
     elif event == cv2.EVENT_LBUTTONDOWN:
         print("2) 마우스 왼쪽 버튼 클릭 시 사각형(크기 30x30)을 그린다.")
-        cv2.rectangle(image, (x, y, 30, 30), (0, 0, 0))
+        cv2.rectangle(image, (x, y), (x+30, y+30), (0, 0, 0))
         cv2.imshow(title, image)
 
 image = np.zeros((400, 400, 3), np.uint8)

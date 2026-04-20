@@ -30,28 +30,19 @@ cv2.createTrackbar(bar_name, title, image[0][0], 255, onChange)
 
 while True:
     key = cv2.waitKeyEx(100)
-    if key == 27: break
+    if key == 27:
+        break
 
-    try:
-        result = switch_case[key]
-        print(result)
-        if key == 2424832: # 왼쪽 화살표키 입력
-            if image[0][0] == 0: value = image[0][0]
-            else: value = image[0][0] - 10
-            cv2.setTrackbarPos(bar_name, title, value)
-        elif key == 2490368: # 윗쪽 화살표키 입력
-            if image[0][0] == 255: value = image[0][0]
-            else: value = image[0][0] + 10
-            cv2.setTrackbarPos(bar_name, title, value)
-        elif key == 2555904: # 오른쪽 화살표키 입력
-            if image[0][0] == 255: value = image[0][0]
-            else: value = image[0][0] + 10
-            cv2.setTrackbarPos(bar_name, title, value)
-        elif key == 2621440: # 아래쪽 화살표키 입력
-            if image[0][0] == 0: value = image[0][0]
-            else: value = image[0][0] - 10
-            cv2.setTrackbarPos(bar_name, title, value)
-    except KeyError:
-        result = -1
+    if key in switch_case:
+        print(switch_case[key])
+
+        value = cv2.getTrackbarPos(bar_name, title)
+
+        if key in (2424832, 2621440):   # 왼쪽, 아래쪽
+            value = max(0, value - 10)
+        elif key in (2490368, 2555904): # 위쪽, 오른쪽
+            value = min(255, value + 10)
+
+        cv2.setTrackbarPos(bar_name, title, value)
 
 cv2.destroyAllWindows()
