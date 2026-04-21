@@ -20,12 +20,12 @@ def onMouse(event, x, y, flags, param):
 
 def onChangeThickness(value):
     global thickness
-    thickness = value
+    thickness = max(1, value)
     print("Thickness:", thickness)
 
 def onChangeRadius(value):
     global radius
-    radius = value
+    radius = max(1, value)
     print("Radius:", radius)
 
 image = np.zeros((400, 600, 3), np.uint8)

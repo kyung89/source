@@ -29,6 +29,8 @@ def setBeta(value):
     cv2.imshow('dst', merged)
 
 cv2.namedWindow('dst')
+cv2.imshow('dst', merged)
+
 cv2.createTrackbar("alpha(%)", "dst", 50, 100, setAlpha)
 cv2.createTrackbar("beta(%)", "dst", 50, 100, setBeta)
 
