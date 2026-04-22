@@ -1,6 +1,5 @@
 import numpy as np, cv2
 
-
 alpha = 0.5
 beta = 0.5
 
