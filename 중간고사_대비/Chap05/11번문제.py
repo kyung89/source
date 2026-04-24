@@ -20,7 +20,7 @@ while True:
     frame = cv2.resize(frame, (320, 240))
     image[:] = 0
 
-    image[30:270, 30:350] = frame
+    image[30:270, 30:350] = frame # image[y1:y2, x1:x2]
     cv2.rectangle(image, (30, 30), (350, 270), (0, 0, 255), 2)
 
     cv2.imshow("frame", image)
