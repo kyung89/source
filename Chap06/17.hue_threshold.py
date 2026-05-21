@@ -1,8 +1,11 @@
 import numpy as np, cv2
 
 def onThreshold(value):
-    th[0] = cv2.getTrackbarPos("Hue_th1", "result")
-    th[1] = cv2.getTrackbarPos("Hue_th2", "result")
+    try:
+        th[0] = cv2.getTrackbarPos("Hue_th1", "result")
+        th[1] = cv2.getTrackbarPos("Hue_th2", "result")
+    except cv2.error:
+        return
 
     # result = np.zeros(hue.shape, np.uint8)
     # for i in range(result.shape[0]):

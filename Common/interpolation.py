@@ -74,3 +74,20 @@ def rotate_pt(img, degree, pt):
             if contain((y, x), img.shape):
                 dst[i, j] = bilinear_value(img, (x, y))
     return dst
+
+def affine_transform(img, mat):
+    rows, cols = img.shape[:2]
+    inv_mat = cv2.invertAffineTransform(mat)
+    ## 리스트 생성 방식
+    pts = [np.dot(inv_mat, (j, i, 1)) for i in range(rows) for j in range(cols)]
+    dst = [bilinear_value(img, p) if contain(p, img.shape[::-1]) else 0 for p in pts]
+    dst = np.reshape(dst, (rows, cols)).astype('uint8') # 1차원 -> 2차원
+
+    ## 반복문 방식
+    # dst= np.zeros(img.shape, img.dtype)
+    # for i in range(rows):
+    #   for j in range(cols):
+    #       pt = np.dot(inv_mat, (j, i, 1))
+    #       if contain(pt, size): dst[i, j] = bilinear_value(img, pt)
+
+    return dst

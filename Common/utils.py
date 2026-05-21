@@ -18,3 +18,6 @@ def put_string(frame, text, pt, value, color=(120, 200, 90)):
     font = cv2.FONT_HERSHEY_SIMPLEX
     cv2.putText(frame, text, shade, font, 0.7, (0,0,0), 2)
     cv2.putText(frame, text, pt, font, 0.7, color, 2)
+
+def contain_pts(p, p1, p2):
+    return p1[0] <= p[0] < p2[0] and p1[1] <= p[1] < p2[1]

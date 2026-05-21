@@ -6,7 +6,7 @@ import numpy as np
 def filter(image, mask):
     rows, cols = image.shape[:2]
     dst = np.zeros((rows, cols), np.float32)
-    ycenter, xcenter = mask.shape[0]//2, mask.shape[1]//2
+    xcenter, ycenter = mask.shape[1]//2, mask.shape[0]//2
 
     for i in range(ycenter, rows - ycenter):
         for j in range(xcenter, cols - xcenter):
@@ -21,7 +21,7 @@ def filter(image, mask):
 def filter2(image, mask):
     rows, cols = image.shape[:2]
     dst = np.zeros((rows, cols), np.float32)
-    ycenter, xcenter = mask.shape[0]//2, mask.shape[1]//2
+    xcenter, ycenter = mask.shape[1]//2, mask.shape[0]//2
 
     for i in range(ycenter, rows - ycenter):
         for j in range(xcenter, cols - xcenter):
