@@ -97,9 +97,6 @@ def classify_weld(path):
 # 이미지가 현재 코드와 같은 폴더에 있는 경우
 image_paths = sorted(glob.glob("*.jpg"))
 
-# 과제4 폴더 안에 있는 경우는 아래 줄 사용
-# image_paths = sorted(glob.glob("./과제4/*.jpg"))
-
 for path in image_paths:
     original, mask, result = classify_weld(path)
 
