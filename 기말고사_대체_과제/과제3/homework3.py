@@ -55,7 +55,6 @@ def classify_product(path):
     return image, edges, result
 
 
-# 같은 폴더의 jpg 전체 검사
 image_paths = sorted(glob.glob("*.jpg"))
 
 for path in image_paths:
